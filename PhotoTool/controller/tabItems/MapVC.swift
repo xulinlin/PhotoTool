@@ -82,7 +82,7 @@ class MapVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         
         collectionView.reloadData()
         if photoAry.count > curIndex, let pose = photoAry[curIndex].getPosition() {
-            mapView.region = MKCoordinateRegion(center: pose, span: MKCoordinateSpan(latitudeDelta: 100, longitudeDelta: 100))
+            mapView.region = MKCoordinateRegion(center: pose, span: MKCoordinateSpan(latitudeDelta: 20, longitudeDelta: 20))
         }
     }
     
