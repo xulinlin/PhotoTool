@@ -68,6 +68,13 @@ class Tools {
         }
         return UIImage(named: "errorImg")
     }
+    
+    class func minOne<T:Comparable>( _ seq:[T]) -> T{
+        assert(seq.count>0)
+        return seq.reduce(seq[0]){
+            min($0, $1)
+        }
+    }
 }
 
 struct DeviceInfo {

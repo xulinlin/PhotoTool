@@ -82,15 +82,14 @@ class MapVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
         
         collectionView.reloadData()
         if photoAry.count > curIndex, let pose = photoAry[curIndex].getPosition() {
-            mapView.region = MKCoordinateRegion(center: pose, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+            mapView.region = MKCoordinateRegion(center: pose, span: MKCoordinateSpan(latitudeDelta: 20, longitudeDelta: 20))
         }
     }
     
     fileprivate func addAnnotation(group: BaseGroup) {
-        guard let fPhoto = group.photos.first as? PhotoModel , fPhoto.id > 0, let pose = fPhoto.getPosition() else {
+        guard let fPhoto = group.photos.first as? PhotoModel , fPhoto.id > 0 else {
             return
         }
-        print(pose)
         var isSelect = false
         if photoAry.count > curIndex, photoAry[curIndex].position == fPhoto.position {
             isSelect = true
@@ -131,7 +130,7 @@ class MapVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
             }
         }
         if let pose = photo.getPosition() {
-            mapView.setRegion(MKCoordinateRegion.init(center: pose, span: MKCoordinateSpanMake(0.5, 0.5)), animated: true)
+            mapView.setRegion(MKCoordinateRegion.init(center: pose, span: MKCoordinateSpanMake(10, 10)), animated: true)
         }
         if  curIndex != indexPath.row {
             curIndex = indexPath.row

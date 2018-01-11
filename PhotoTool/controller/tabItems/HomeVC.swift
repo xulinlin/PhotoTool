@@ -14,14 +14,7 @@ struct PageTitle {
     static let Map = "Map"
     static let Me = "Me"
 }
-extension Tools {
-    class func minOne<T:Comparable>( _ seq:[T]) -> T{
-        assert(seq.count>0)
-        return seq.reduce(seq[0]){
-            min($0, $1)
-        }
-    }
-}
+
 class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, WaterFallLayoutDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     fileprivate lazy var cellSize:CGSize = {
         let wid = Tools.minOne([DeviceInfo.ScreenWidth, DeviceInfo.ScreenHeight])
