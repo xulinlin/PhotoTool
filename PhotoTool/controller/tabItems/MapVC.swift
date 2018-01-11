@@ -87,10 +87,9 @@ class MapVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     fileprivate func addAnnotation(group: BaseGroup) {
-        guard let fPhoto = group.photos.first as? PhotoModel , fPhoto.id > 0, let pose = fPhoto.getPosition() else {
+        guard let fPhoto = group.photos.first as? PhotoModel , fPhoto.id > 0 else {
             return
         }
-        print(pose)
         var isSelect = false
         if photoAry.count > curIndex, photoAry[curIndex].position == fPhoto.position {
             isSelect = true

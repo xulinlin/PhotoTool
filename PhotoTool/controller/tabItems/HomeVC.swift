@@ -106,11 +106,23 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        NotificationCenter.default.addObserver(self, selector: #selector(becomeActive(noti:)), name: NSNotification.Name(rawValue: PhotoNotiFicationName.BecomeActive), object: nil)
+
         let layout = StickyHeadersFlowLayout()
         collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.reloadData()
         reFreshData()
     }
+    
+//    @objc fileprivate func becomeActive(noti: Notification) {
+//        guard let dic = noti.userInfo as? [String: AnyObject], let isUpdate = dic["isUpdate"] as? Bool else {
+//            return
+//        }
+//        if isUpdate {
+//            reFreshData()
+//        }
+//    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

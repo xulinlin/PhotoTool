@@ -10,6 +10,7 @@ import UIKit
 
 struct PhotoNotiFicationName {
     static let HidiBottomBar = "HidiBottomBar"
+    static let BecomeActive = "BecomeActive"
 }
 
 class MainTabVC: CustomTabBarController, UITabBarControllerDelegate {
