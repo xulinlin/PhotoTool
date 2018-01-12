@@ -45,10 +45,6 @@ class DateTools {
 }
 
 class Tools {
-    class func getNewFont(size: CGFloat) -> UIFont {
-        let font = UIFont.systemFont(ofSize: size * DeviceInfo.ScaleSizeW)
-        return font
-    }
     
     /// 根据id得到图片data
     ///

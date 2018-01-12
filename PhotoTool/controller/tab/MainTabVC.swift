@@ -79,12 +79,6 @@ class CustomTabBarController: UITabBarController {
     }
     
     override func viewWillLayoutSubviews() {
-        if DeviceInfo.isPad {
-            var tabFrame = self.tabBar.frame
-            tabFrame.size.height = 115
-            tabFrame.origin.y = view.frame.size.height - 115
-            self.tabBar.frame = tabFrame
-            self.tabBar.itemPositioning = .fill
-        }
+        self.tabBar.itemPositioning = .fill
     }
 }
