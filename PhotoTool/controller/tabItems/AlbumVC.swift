@@ -20,14 +20,19 @@ class AlbumVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+        loadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setNavigationBar(isBackShow: false, bgImgName: "", titleName: PageTitle.Album, titleColor: UIColor.black)
         navigationController?.navigationBar.tintColor = UIColor.black
-        
-        loadData()
+        SystemPhotoManager.share.synchroPhotos { [weak self]  (_, isUpdate) in
+            guard let weakself = self else { return }
+            if isUpdate {
+                weakself.loadData()
+            }
+        }
     }
     
     fileprivate func loadData() {
